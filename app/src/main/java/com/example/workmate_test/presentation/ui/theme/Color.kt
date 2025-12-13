@@ -1,4 +1,4 @@
-package com.example.workmate_test.ui.theme
+package com.example.workmate_test.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
