@@ -48,4 +48,13 @@ class CountryRepositoryImpl @Inject constructor(
     override suspend fun refreshCountries() {
         countryDao.deleteAllCountries()
     }
+
+    override suspend fun getCountry(id: Int): Result<Country> {
+        return try {
+            Result.Success(countryDao.getCountry(id).toCountry())
+        } catch (e: Throwable) {
+            Result.Error.UnknownError(e)
+        }
+    }
+
 }
