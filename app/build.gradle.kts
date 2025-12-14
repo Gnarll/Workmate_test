@@ -70,6 +70,8 @@ dependencies {
     implementation(libs.kotlinx.serialization.converter)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     ksp(libs.hilt.compiler)
     ksp(libs.androidx.room.compiler)
