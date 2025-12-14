@@ -10,9 +10,12 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CountryDao {
     @Query("SELECT * FROM country ORDER BY name ASC")
-    fun getCountries(): Flow<CountryEntity>
+    fun getCountries(): Flow<List<CountryEntity>>
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCountries(countries: List<CountryEntity>)
+
+    @Query("DELETE FROM country")
+    suspend fun deleteAllCountries()
 }

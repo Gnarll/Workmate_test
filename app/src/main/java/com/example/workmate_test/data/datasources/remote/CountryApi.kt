@@ -4,7 +4,7 @@ import com.example.workmate_test.data.models.dtos.CountryDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface CountryService {
+interface CountryApi {
     @GET("all")
     suspend fun getCountries(
         @Query("fields") fields: List<String> = listOf(
