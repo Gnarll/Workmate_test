@@ -12,3 +12,4 @@ Notes during developing
   also it seems unsafe fetching the item not by id, but by anything else.
 - I could have used UseCases like in classic clean architecture, but i found them redundant in this
   case.
+- Couldn't find emoji flag in api, so didn't implement field with it

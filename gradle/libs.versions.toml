@@ -43,7 +43,6 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = 
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
-androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 
 androidx-navigation3-runtime = { module = "androidx.navigation3:navigation3-runtime", version.ref = "nav3Core" }
 androidx-navigation3-ui = { module = "androidx.navigation3:navigation3-ui", version.ref = "nav3Core" }
