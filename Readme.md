@@ -9,4 +9,6 @@ Notes during developing
   for the list
   of not detailed items, and second for one detailed) would allow only the list working without the
   internet.
-  also it seems unsafe fetching the item not by id, but by anything else. 
+  also it seems unsafe fetching the item not by id, but by anything else.
+- I could have used UseCases like in classic clean architecture, but i found them redundant in this
+  case.

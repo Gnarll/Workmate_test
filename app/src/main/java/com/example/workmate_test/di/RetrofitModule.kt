@@ -1,6 +1,6 @@
 package com.example.workmate_test.di
 
-import com.example.workmate_test.data.datasources.remote.CountryService
+import com.example.workmate_test.data.datasources.remote.CountryApi
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -27,8 +27,8 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideCountryApi(retrofit: Retrofit): CountryService =
-        retrofit.create(CountryService::class.java)
+    fun provideCountryApi(retrofit: Retrofit): CountryApi =
+        retrofit.create(CountryApi::class.java)
 
 
     private const val BASE_URL = "https://restcountries.com/v3.1/"
