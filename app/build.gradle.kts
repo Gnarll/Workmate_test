@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.kotlinx.serialization.converter)
     implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
 
     ksp(libs.hilt.compiler)
     ksp(libs.androidx.room.compiler)
