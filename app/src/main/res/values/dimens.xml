@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_padding_between_items">4dp</dimen>
+    <dimen name="divider_thickness">1dp</dimen>
+    <dimen name="image_default_size">24dp</dimen>
+    <dimen name="image_big_size">88dp</dimen>
+    <dimen name="padding_x_small">4dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="corner_radius">8dp</dimen>
+    <dimen name="padding_medium">12dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+</resources>

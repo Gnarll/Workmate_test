@@ -74,8 +74,8 @@ fun RootNavigator() {
                 }
                 entry<Route.CountryDetailsRoute> { route ->
                     CountryDetailsScreen(
-                        countryId = route.countryId,
-                        onNavigateBack = { backStack.pop() })
+                        countryId = route.countryId
+                    )
                 }
             }
         )

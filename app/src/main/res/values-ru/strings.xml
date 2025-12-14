@@ -3,4 +3,14 @@
     <string name="app_name">Workmate_test</string>
     <string name="go_back">Вернуться назад</string>
     <string name="countries">Страны</string>
+    <string name="error_network">Проверьте подключение к интернету</string>
+    <string name="error_serialization">Проблемы с сериализацией: возможно изменился api</string>
+    <string name="error_server">Проблемы с сервером, повторите попытку позднее</string>
+    <string name="error_unknown">Неизвестная ошибка</string>
+    <string name="image_flag">Флаг %1$s</string>
+    <string name="title_continent">Континент</string>
+    <string name="title_capitals">Столицы</string>
+    <string name="title_languages">Языки</string>
+    <string name="title_currencies">Валюты</string>
+    <string name="currency">%1$s (%2$s)</string>
 </resources>
