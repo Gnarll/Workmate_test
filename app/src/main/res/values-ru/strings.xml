@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Workmate_test</string>
+    <string name="go_back">Вернуться назад</string>
+    <string name="countries">Страны</string>
+</resources>

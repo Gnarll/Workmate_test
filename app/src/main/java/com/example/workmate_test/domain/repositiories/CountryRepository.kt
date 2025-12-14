@@ -6,5 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface CountryRepository {
     fun getCountriesSteam(): Flow<Result<List<Country>>>
+
+    suspend fun getCountry(id: Int): Result<Country>
     suspend fun refreshCountries()
 }
