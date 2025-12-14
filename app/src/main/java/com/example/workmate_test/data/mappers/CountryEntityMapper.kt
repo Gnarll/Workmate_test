@@ -1,6 +1,6 @@
 package com.example.workmate_test.data.mappers
 
-import com.example.workmate_test.data.datasources.local.entities.CountryEntity
+import com.example.workmate_test.data.models.entities.CountryEntity
 import com.example.workmate_test.domain.models.Country
 
 fun CountryEntity.toCountry(): Country = Country(

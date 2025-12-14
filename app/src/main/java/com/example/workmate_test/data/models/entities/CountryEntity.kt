@@ -1,4 +1,4 @@
-package com.example.workmate_test.data.datasources.local.entities
+package com.example.workmate_test.data.models.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

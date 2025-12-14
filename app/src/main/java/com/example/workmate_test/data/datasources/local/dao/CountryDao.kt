@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.workmate_test.data.datasources.local.entities.CountryEntity
+import com.example.workmate_test.data.models.entities.CountryEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
