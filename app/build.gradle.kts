@@ -42,7 +42,7 @@ android {
     buildFeatures {
         compose = true
     }
-    
+
     ksp {
         arg("room.schemaLocation", "$projectDir/schemas")
     }
@@ -62,7 +62,6 @@ dependencies {
 
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.paging)
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)
@@ -71,8 +70,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.converter)
     implementation(libs.hilt.android)
 
-    implementation(libs.androidx.paging)
-    implementation(libs.androidx.paging.compose)
     ksp(libs.hilt.compiler)
     ksp(libs.androidx.room.compiler)
 
