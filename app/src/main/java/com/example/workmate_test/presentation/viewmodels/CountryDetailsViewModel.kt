@@ -27,7 +27,7 @@ class CountryDetailsViewModel @AssistedInject constructor(
 
     private fun loadCountry() {
         viewModelScope.launch {
-            _country.value = Result.Success(countryRepository.getCountry(countryId)).data
+            _country.value = countryRepository.getCountry(countryId)
         }
     }
 
