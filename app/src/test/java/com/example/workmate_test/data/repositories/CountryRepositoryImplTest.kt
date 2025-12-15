@@ -11,15 +11,18 @@ import com.example.workmate_test.data.models.entitites.CountryEntityMock
 import com.example.workmate_test.domain.utils.Result
 import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
+import org.mockito.kotlin.doAnswer
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 import java.io.IOException
+import kotlin.test.assertEquals
 
 class CountryRepositoryImplTest {
 
@@ -94,6 +97,44 @@ class CountryRepositoryImplTest {
             assert(awaitItem() is Result.Loading)
             val error = awaitItem()
             assertTrue(error is Result.Error.NetworkError)
+        }
+    }
+
+    @Test
+    fun `when refreshed, should flush db and fetch data again`() = runTest {
+        val oldEntities = listOf(CountryEntityMock.createEntity(), CountryEntityMock.createEntity())
+
+        val newDtos = listOf(CountryDtoMock.createDto())
+        val newEntities = newDtos.map { it.toCountryEntity() }
+        val expectedCountries = newEntities.map { it.toCountry() }
+
+        val entitiesFlow = MutableStateFlow(oldEntities)
+
+        whenever(countryDao.getCountries()).thenReturn(entitiesFlow)
+        whenever(countryApi.getCountries()).thenReturn(newDtos)
+        whenever(countryDao.insertCountries(newEntities)).doAnswer {
+            entitiesFlow.value = newEntities
+        }
+        whenever(countryDao.deleteAllCountries()).doAnswer {
+            entitiesFlow.value = emptyList()
+        }
+
+
+        countryRepositoryImpl.getCountriesSteam().test {
+            assertEquals(awaitItem(), Result.Loading)
+            assertEquals(awaitItem(), Result.Success(oldEntities.map { it.toCountry() }))
+
+            countryRepositoryImpl.refreshCountries()
+            verify(countryDao).deleteAllCountries()
+            assertEquals(awaitItem(), Result.Loading)
+
+            val successNewCountries = awaitItem()
+            assertTrue(
+                successNewCountries is Result.Success
+                        && successNewCountries.data == expectedCountries
+            )
+
+            cancelAndIgnoreRemainingEvents()
         }
     }
 }
