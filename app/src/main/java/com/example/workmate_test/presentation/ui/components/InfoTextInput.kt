@@ -24,7 +24,7 @@ fun InfoTextInput(
     innerBody: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     titleColor: Color = Color(0xFF2196F3),
-    backgroundColor: Color = Color(0xFFD9D5D5),
+    backgroundColor: Color = MaterialTheme.colorScheme.primaryContainer,
     cornerRadius: Dp = dimensionResource(R.dimen.corner_radius),
     padding: PaddingValues = PaddingValues(
         horizontal = dimensionResource(R.dimen.padding_medium),
