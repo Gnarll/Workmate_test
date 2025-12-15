@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -53,7 +54,7 @@ fun CountryItem(country: Country, onClick: (Country) -> Unit, modifier: Modifier
                 modifier = Modifier.size(dimensionResource(R.dimen.image_default_size))
             )
             Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_medium)))
-            Text(text = country.name)
+            Text(text = country.name, color = MaterialTheme.colorScheme.onPrimaryContainer)
 
         }
         HorizontalDivider(
