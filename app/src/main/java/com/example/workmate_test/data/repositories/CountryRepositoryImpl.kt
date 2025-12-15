@@ -28,7 +28,6 @@ class CountryRepositoryImpl @Inject constructor(
     @OptIn(ExperimentalCoroutinesApi::class)
     override fun getCountriesSteam(): Flow<Result<List<Country>>> {
         return refreshTrigger.flatMapLatest {
-            
             countryDao.getCountries().transformLatest { entities ->
                 emit(Result.Loading)
 
