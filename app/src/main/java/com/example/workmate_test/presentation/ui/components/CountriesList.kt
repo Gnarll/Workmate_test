@@ -8,11 +8,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -20,32 +15,26 @@ import androidx.compose.ui.res.stringResource
 import com.example.workmate_test.R
 import com.example.workmate_test.domain.models.Country
 import com.example.workmate_test.domain.utils.Result
-import kotlinx.coroutines.launch
 
 @Composable
 fun CountriesList(
     countriesProvider: () -> Result<List<Country>>,
-    onRefresh: suspend () -> Unit,
+    isRefreshingProvider: () -> Boolean,
+    onRefresh: () -> Unit,
     onClickCountry: (Country) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val coroutineScope = rememberCoroutineScope()
 
-    var isRefreshing by remember { mutableStateOf(false) }
 
+    val isRefreshing = isRefreshingProvider()
     val countries = countriesProvider()
+
 
     PullToRefreshBox(
         contentAlignment = Alignment.Center,
         modifier = modifier.fillMaxSize(),
         isRefreshing = isRefreshing,
-        onRefresh = {
-            coroutineScope.launch {
-                isRefreshing = true
-                onRefresh()
-                isRefreshing = false
-            }
-        },
+        onRefresh = onRefresh,
     ) {
         LazyColumn(
             horizontalAlignment = Alignment.CenterHorizontally,
