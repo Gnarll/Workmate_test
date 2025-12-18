@@ -6,7 +6,8 @@ import com.example.workmate_test.domain.models.Currency
 object CountryEntityMock {
     private var diff = 0
     fun createEntity(): CountryEntity = CountryEntity(
-        name = "Name $diff",
+        id = diff,
+        name = "Entity Name $diff",
         flagUrl = null,
         flagAlt = null,
         currencies = listOf(Currency("dollar", "$")),

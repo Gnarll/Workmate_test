@@ -22,7 +22,7 @@ class CountriesViewModel @Inject constructor(private val countryRepository: Coun
 
     init {
         viewModelScope.launch {
-            countryRepository.getCountriesSteam().collect { countriesResult ->
+            countryRepository.getCountriesStream().collect { countriesResult ->
                 _countriesUiState.update {
                     it.copy(
                         countriesResult = countriesResult,

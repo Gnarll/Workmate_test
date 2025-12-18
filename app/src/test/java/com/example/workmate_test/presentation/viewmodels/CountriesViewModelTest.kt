@@ -39,7 +39,7 @@ class CountriesViewModelTest {
     @Test
     fun `when inits state should be Loading`() = runTest {
         viewModel = CountriesViewModel(repository)
-        whenever(repository.getCountriesSteam()).thenReturn(emptyFlow())
+        whenever(repository.getCountriesStream()).thenReturn(emptyFlow())
         val state = viewModel.countriesUiState.value
 
         assertTrue(state.countriesResult is Result.Loading)
@@ -59,7 +59,7 @@ class CountriesViewModelTest {
 
         val countriesFlow = flowOf(Result.Success(mockCountries))
 
-        whenever(repository.getCountriesSteam()).thenReturn(countriesFlow)
+        whenever(repository.getCountriesStream()).thenReturn(countriesFlow)
 
         advanceUntilIdle()
 
@@ -73,7 +73,7 @@ class CountriesViewModelTest {
     @Test
     fun `onRefresh should set isRefreshing true and call refresh`() = runTest {
         viewModel = CountriesViewModel(repository)
-        whenever(repository.getCountriesSteam()).thenReturn(emptyFlow())
+        whenever(repository.getCountriesStream()).thenReturn(emptyFlow())
 
         viewModel.onRefresh()
 

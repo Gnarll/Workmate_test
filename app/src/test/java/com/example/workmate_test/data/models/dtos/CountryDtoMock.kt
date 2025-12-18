@@ -3,7 +3,7 @@ package com.example.workmate_test.data.models.dtos
 object CountryDtoMock {
     private var diff = 0
     fun createDto(): CountryDto = CountryDto(
-        name = CountryNameDto(common = "Common name $diff", official = "Official name $diff"),
+        name = CountryNameDto(common = "Dto Common name $diff", official = "Official name $diff"),
         flags = FlagsDto(png = null, alt = null),
         currencies = mapOf("$diff" to CurrencyDto(name = "dollar", symbol = "$")),
         capitals = listOf("capital$diff"),
